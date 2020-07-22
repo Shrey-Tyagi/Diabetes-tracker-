@@ -236,7 +236,7 @@ const UICtrl = (function() {
                 html += `<li class="list-group-item lits-group-item-active" id="item-${item.id}">
                             <strong><u>${date.getUTCDate()}/${date.getUTCMonth()+1}/${date.getUTCFullYear()}</u></strong>&emsp;
                             <strong>${item.name}: </strong>
-                            <em>${item.calories} Calories</em>
+                            <em>${item.calories} mg/Dl</em>
                             <a href="#" class="float-right">
                                 <i class="edit-item fa fa-pencil"></i>
                             </a>
@@ -256,9 +256,8 @@ const UICtrl = (function() {
         addItemToForm: function() {
             document.querySelector(UISelectors.inputMeal).value = ItemCtrl.getCurrentItem().name
             document.querySelector(UISelectors.inputCalorie).value = ItemCtrl.getCurrentItem().calories
-                // Covert the dateString to Date object from list
+               
             const newDate = ItemCtrl.covertToDateType(ItemCtrl.getCurrentItem().date)
-                // PreFormat date according to the input type (Year-Month-Day) or else data wont be Accepted
             document.querySelector(UISelectors.inputDate).value = newDate.toISOString().substring(0, 10)
             UICtrl.showEditState()
         },
@@ -305,7 +304,7 @@ const UICtrl = (function() {
             // Add HTML
             li.innerHTML = `<strong><u>${item.date.getUTCDate()}/${item.date.getUTCMonth()+1}/${item.date.getUTCFullYear()}</u></strong>&emsp;
                             <strong>${item.name}: </strong>
-                            <em>${item.calories} Calories</em>
+                            <em>${item.calories} mg/Dl</em>
                             <a href="#" class="float-right">
                                 <i class="edit-item fa fa-pencil"></i>
                             </a>`
@@ -326,7 +325,7 @@ const UICtrl = (function() {
                     document.querySelector(`#${itemID}`).
                     innerHTML = `<strong><u>${updatedItem.date.getUTCDate()}/${updatedItem.date.getUTCMonth()+1}/${updatedItem.date.getUTCFullYear()}</u></strong>&emsp;
                                 <strong>${updatedItem.name}: </strong>
-                                <em>${updatedItem.calories} Calories</em>
+                                <em>${updatedItem.calories} mg/Dl</em>
                                 <a href="#" class="float-right">
                                     <i class="edit-item fa fa-pencil"></i>
                                 </a>`
